@@ -1,0 +1,412 @@
+/* ============================================================
+   CONFIGURAÇÕES GERAIS
+   ============================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    padding: 40px 20px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background:
+        radial-gradient(circle at top, #3b146b 0%, #160b25 35%, #050505 75%);
+
+    color: #ffffff;
+}
+
+
+/* ============================================================
+   FORMULÁRIOS
+   ============================================================ */
+
+form {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 30px auto;
+}
+
+fieldset {
+    padding: 30px;
+
+    border: 2px solid #7b2cbf;
+    border-radius: 20px;
+
+    background: rgba(15, 15, 15, 0.95);
+
+    box-shadow:
+        0 0 15px rgba(123, 44, 191, 0.35),
+        0 10px 30px rgba(0, 0, 0, 0.6);
+
+    transition: 0.3s ease;
+}
+
+
+/* Efeito ao passar o mouse na caixa */
+
+fieldset:hover {
+    border-color: #a855f7;
+
+    box-shadow:
+        0 0 25px rgba(168, 85, 247, 0.45),
+        0 10px 35px rgba(0, 0, 0, 0.7);
+}
+
+
+/* ============================================================
+   LEGEND / TÍTULOS
+   ============================================================ */
+
+legend {
+    padding: 8px 18px;
+
+    border: 2px solid #7b2cbf;
+    border-radius: 12px;
+
+    background-color: #10091a;
+
+    color: #c77dff;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    box-shadow: 0 0 12px rgba(123, 44, 191, 0.4);
+}
+
+
+/* ============================================================
+   PARÁGRAFOS
+   ============================================================ */
+
+p {
+    margin-bottom: 20px;
+}
+
+
+/* ============================================================
+   LABELS
+   ============================================================ */
+
+label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #d8b4fe;
+
+    font-size: 15px;
+    font-weight: bold;
+}
+
+
+/* ============================================================
+   CAMPOS DE INPUT
+   ============================================================ */
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 2px solid #3f1d5c;
+    border-radius: 10px;
+
+    outline: none;
+
+    background-color: #080808;
+    color: #ffffff;
+
+    font-size: 15px;
+
+    transition: all 0.3s ease;
+}
+
+
+/* Placeholder */
+
+input::placeholder {
+    color: #777;
+}
+
+
+/* Campo selecionado */
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #a855f7;
+
+    background-color: #0d0712;
+
+    box-shadow:
+        0 0 8px rgba(168, 85, 247, 0.5);
+
+    transform: scale(1.01);
+}
+
+
+/* ============================================================
+   BOTÕES
+   ============================================================ */
+
+button,
+input[type="reset"] {
+    padding: 12px 22px;
+
+    border: none;
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+
+/* Botão principal */
+
+button[type="submit"] {
+    background: linear-gradient(
+        135deg,
+        #6a0dad,
+        #9d4edd
+    );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 4px 12px rgba(123, 44, 191, 0.4);
+}
+
+
+/* Hover botão principal */
+
+button[type="submit"]:hover {
+    background: linear-gradient(
+        135deg,
+        #8b2fc9,
+        #c77dff
+    );
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 18px rgba(168, 85, 247, 0.6);
+}
+
+
+/* Clique */
+
+button[type="submit"]:active,
+input[type="reset"]:active {
+    transform: scale(0.97);
+}
+
+
+/* ============================================================
+   BOTÃO LIMPAR
+   ============================================================ */
+
+input[type="reset"] {
+    margin-left: 10px;
+
+    background-color: #252525;
+
+    color: #d8b4fe;
+
+    border: 1px solid #6a0dad;
+}
+
+
+input[type="reset"]:hover {
+    background-color: #6a0dad;
+
+    color: #ffffff;
+
+    border-color: #a855f7;
+
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.5);
+}
+
+
+/* ============================================================
+   FORMULÁRIO DE EXCLUSÃO
+   ============================================================ */
+
+#delConta {
+    border-color: #8b1e3f;
+
+    background: linear-gradient(
+        145deg,
+        #10080d,
+        #080808
+    );
+}
+
+
+/* Título da exclusão */
+
+#delConta legend {
+    border-color: #8b1e3f;
+
+    color: #ff6b8a;
+
+    box-shadow:
+        0 0 12px rgba(139, 30, 63, 0.4);
+}
+
+
+/* Campos do formulário de exclusão */
+
+#delConta input[type="email"],
+#delConta input[type="password"] {
+    border-color: #4a1728;
+}
+
+
+/* Foco dos campos de exclusão */
+
+#delConta input[type="email"]:focus,
+#delConta input[type="password"]:focus {
+    border-color: #e63964;
+
+    box-shadow:
+        0 0 10px rgba(230, 57, 100, 0.4);
+}
+
+
+/* ============================================================
+   BOTÃO EXCLUIR CONTA
+   ============================================================ */
+
+#delConta button[type="submit"] {
+    background: linear-gradient(
+        135deg,
+        #b51235,
+        #e63964
+    );
+
+    color: white;
+}
+
+
+#delConta button[type="submit"]:hover {
+    background: linear-gradient(
+        135deg,
+        #e63964,
+        #ff6b8a
+    );
+
+    box-shadow:
+        0 6px 20px rgba(230, 57, 100, 0.5);
+}
+
+
+/* ============================================================
+   CENTRALIZAÇÃO DOS BOTÕES
+   ============================================================ */
+
+center {
+    margin-top: 10px;
+}
+
+
+/* ============================================================
+   RESPONSIVIDADE PARA CELULAR
+   ============================================================ */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 20px 12px;
+    }
+
+    form {
+        margin-bottom: 20px;
+    }
+
+    fieldset {
+        padding: 22px 18px;
+
+        border-radius: 16px;
+    }
+
+    legend {
+        font-size: 14px;
+        padding: 7px 12px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    button,
+    input[type="reset"] {
+        padding: 11px 16px;
+        font-size: 13px;
+    }
+
+    #delConta button[type="submit"] {
+        width: 100%;
+    }
+}
+
+
+/* ============================================================
+   ANIMAÇÃO DE ENTRADA
+   ============================================================ */
+
+form {
+    animation: aparecer 0.7s ease forwards;
+}
+
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ============================================================
+   BARRA DE ROLAGEM
+   ============================================================ */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #6a0dad;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #9d4edd;
+}
