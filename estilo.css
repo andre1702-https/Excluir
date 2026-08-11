@@ -410,3 +410,63 @@ form {
 ::-webkit-scrollbar-thumb:hover {
     background: #9d4edd;
 }
+
+/* ============================================================
+   LISTA DE USUÁRIOS ENQUANTO DIGITA
+============================================================ */
+
+.lista-usuarios {
+    width: 100%;
+    margin-top: 8px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.usuario-item {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    padding: 12px 15px;
+
+    background: #17101f;
+    border: 1px solid #4f216e;
+    border-bottom: none;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.usuario-item:last-child {
+    border-bottom: 1px solid #4f216e;
+}
+
+.usuario-item:hover {
+    background: #6a0dad;
+    border-color: #a855f7;
+    transform: translateX(3px);
+}
+
+.usuario-item strong {
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.usuario-item small {
+    color: #d8b4fe;
+    font-size: 12px;
+}
+
+.usuario-nao-encontrado {
+    padding: 12px 15px;
+
+    background: #17101f;
+    border: 1px solid #4f216e;
+    border-radius: 10px;
+
+    color: #aaa;
+    font-size: 13px;
+}
