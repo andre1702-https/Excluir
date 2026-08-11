@@ -71,8 +71,10 @@
 <fieldset id="delConta">
 <legend>EXCLUIR MINHA CONTA COMPLETA</legend>
 <p>
-<label>E-mail:</label>
-<input type="email" id="deletarEmailAuth" required>
+    <label>E-mail:</label>
+    <input type="email" id="deletarEmailAuth" required>
+
+    <div id="listaUsuarios" class="lista-usuarios"></div>
 </p>
 <p>
 <label>Senha:</label>
@@ -114,15 +116,16 @@
         // Importações do Firestore
  
         import {
- 
             getFirestore,
- 
             doc,
- 
             setDoc,
- 
-            deleteDoc
- 
+            deleteDoc,
+            collection,
+            query,
+            orderBy,
+            startAt,
+            endAt,
+            getDocs
         } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
  
  
@@ -152,6 +155,75 @@
         const auth = getAuth(app);
  
         const db = getFirestore(app);
+
+        // ============================================================
+        // MOSTRAR NOMES DOS USUÁRIOS ENQUANTO DIGITA O E-MAIL
+        // ============================================================
+
+        const campoEmail = document.getElementById("deletarEmailAuth");
+        const listaUsuarios = document.getElementById("listaUsuarios");
+
+        campoEmail.addEventListener("input", async () => {
+
+            const texto = campoEmail.value.trim().toLowerCase();
+
+            listaUsuarios.innerHTML = "";
+
+            // Não pesquisa se tiver menos de 2 letras
+            if (texto.length < 2) {
+                return;
+            }
+
+            try {
+
+                const usuariosRef = collection(db, "usuarios");
+
+                // Procura e-mails que começam com o texto digitado
+                const consulta = query(
+                    usuariosRef,
+                    orderBy("email"),
+                    startAt(texto),
+                    endAt(texto + "\uf8ff")
+                );
+
+                const resultado = await getDocs(consulta);
+
+                if (resultado.empty) {
+                    listaUsuarios.innerHTML =
+                        "<div class='usuario-nao-encontrado'>Nenhum usuário encontrado.</div>";
+                    return;
+                }
+
+                resultado.forEach((documento) => {
+
+                    const usuario = documento.data();
+
+                    const item = document.createElement("div");
+
+                    item.className = "usuario-item";
+
+                    item.innerHTML = `
+                        <strong>${usuario.nome}</strong>
+                        <small>${usuario.email}</small>
+                    `;
+
+                    // Ao clicar no nome, coloca o e-mail no campo
+                    item.addEventListener("click", () => {
+                        campoEmail.value = usuario.email;
+                        listaUsuarios.innerHTML = "";
+                    });
+
+                    listaUsuarios.appendChild(item);
+                });
+
+            } catch (error) {
+
+                console.error("Erro ao pesquisar usuários:", error);
+
+                listaUsuarios.innerHTML =
+                    "<div class='usuario-nao-encontrado'>Erro ao pesquisar usuários.</div>";
+            }
+        });
  
  
         // ============================================================
